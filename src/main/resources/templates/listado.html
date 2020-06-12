@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>Insert title here</title>
+<script type="text/javascript" src="webjars/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="webjars/bootstrap/3.2.0/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<h1> Tabla de Personas</h1>
+<p class="h1">h1. Bootstrap heading</p>
+
+<div  class="container">
+<div class="row">
+
+<div class="col-sm-4">
+
+</div>
+
+<div class="col-sm-4">
+<table  class="table table-dark  table-hover  table-bordered"  th:if="${!listadoPerso.isEmpty()}">
+
+<thead class=" thead-light">
+<tr>      
+
+<td>id</td>
+<td>Nombre</td>
+<td>Correo</td>
+<td>Ver</td>
+</tr>
+
+</thead>
+<tbody>
+<tr  th:each="variable: ${listadoPerso}">
+<td th:text="${variable.id}"></td>
+<td th:text="${variable.nombre}"></td>
+<td th:text="${variable.correo}"></td>
+<td><a th:href="@{/persona(id=${variable.id}, nombre=${variable.nombre}, correo=${variable.correo})}">  Ver</a></td>
+
+
+</tr>
+
+
+</tbody>
+
+</table>
+</div>
+<div  class="col-sm-4">
+</div>
+</div>
+</body>
+</html>
